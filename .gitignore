@@ -1,0 +1,14 @@
+﻿################################################################################
+# Este arquivo .gitignore foi criado automaticamente pelo Microsoft(R) Visual Studio.
+################################################################################
+
+/.vs/ls-poo-features/DesignTimeBuild/.dtbcache.v2
+/.vs/ls-poo-features/FileContentIndex/54d394c1-7cc5-419a-abbd-a4b66d7cb423.vsidx
+/.vs/ls-poo-features/FileContentIndex/6340f6b3-ddf5-4e0b-892c-467ab996e73f.vsidx
+/.vs/ls-poo-features/FileContentIndex/8796d12e-9e70-46d3-9ff9-0a6c53f53645.vsidx
+/.vs/ls-poo-features/FileContentIndex/b6f06d8d-9b1a-4018-bb98-676f5d111f50.vsidx
+/.vs/ls-poo-features/v17/.futdcache.v2
+/.vs/ls-poo-features/v17/.suo
+/.vs/ProjectEvaluation/ls-poo-features.metadata.v7.bin
+/.vs/ProjectEvaluation/ls-poo-features.projects.v7.bin
+/ls-poo-features/ls-poo-features.csproj

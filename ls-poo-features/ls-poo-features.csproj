@@ -8,4 +8,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Folder Include="DBContext\Querys\Abstraction\" />
+    <Folder Include="DBContext\Querys\Implementation\" />
+    <Folder Include="Repositories\" />
+  </ItemGroup>
+
 </Project>
