@@ -2,6 +2,8 @@
 {
     public class Editor
     {
+        public Editor() { }
+
         public int Id { get; set; }
         public string? SocialName { get; set; }
         public string? ContactName { get; set; }
