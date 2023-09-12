@@ -27,22 +27,47 @@ namespace ls_poo_features.Repositories
             Console.WriteLine("4. Sair: ");
         }
 
-        public void MenuAtualizarAtributo()
+        public void MenuCadastrarAutomovel()
         {
-            Console.WriteLine("-> Qual atributo deseja atualizar?");
+            Console.WriteLine("1. Cadastrar Montadora: ");
+            Console.WriteLine("2. Cadastrar Modelo: ");
+            Console.WriteLine("3. Cadastrar Carro: ");
+            Console.WriteLine("4. Voltar: ");
+        }
+
+        public void MenuAtualizarAutomovel()
+        {
+            Console.WriteLine("-> Escolha o que será atualizado ");
             Console.WriteLine("--------------");
+            Console.WriteLine("1. Atualizar Montadora: ");
+            Console.WriteLine("2. Atualizar Modelo: ");
+            Console.WriteLine("3. Atualizar Carro: ");
+            Console.WriteLine("4. Voltar: ");
+        }
+
+        public void MenuAtualizarMontadora()
+        {
             Console.WriteLine("-- Montadora --");
+            Console.WriteLine("-> Qual atributo será alterado?");
             Console.WriteLine("1. Codigo");
             Console.WriteLine("2. Estado");
             Console.WriteLine("3. Razão Social");
+        }
+
+        public void MenuAtualizarModelo()
+        {
             Console.WriteLine("-- Modelo --");
-            Console.WriteLine("4. Codigo");
-            Console.WriteLine("5. Nome");
-            Console.WriteLine("6. Montadora");
+            Console.WriteLine("-> Qual atributo será alterado?");
+            Console.WriteLine("1. Codigo");
+            Console.WriteLine("2. Nome");
+        }
+
+        public void MenuAtualizarCarro()
+        {
             Console.WriteLine("-- Carro --");
-            Console.WriteLine("7. Placa");
-            Console.WriteLine("8. Modelo");
-            Console.WriteLine("9. Ano de fabricação");
+            Console.WriteLine("-> Qual atributo será alterado?");
+            Console.WriteLine("1. Placa");
+            Console.WriteLine("2. Ano de fabricação");
         }
     }
 }
