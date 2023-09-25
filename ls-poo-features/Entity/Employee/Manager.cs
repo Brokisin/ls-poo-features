@@ -16,14 +16,14 @@
         public int NumeroFuncionariosGerenciados { get; set; }
 
         
-        public bool AutenticarSenha(string senha)
+        public virtual bool AutenticarSenha(string senha)
         {
             return senha == Senha;
         }
 
-        public override double Bonificar()
+        public override void Bonificar()
         {
-            return Salario + (Salario * 0.15);
+            Salario = Salario + (Salario * 0.15);
         }
     }
 }

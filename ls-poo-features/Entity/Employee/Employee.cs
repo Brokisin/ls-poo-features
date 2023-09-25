@@ -15,9 +15,9 @@
         public double Salario { get; set; }
         public string? Departamento { get; set; }
 
-        public virtual double Bonificar()
+        public virtual void Bonificar()
         {
-            return Salario + (Salario * 0.1);
+            Salario = Salario + (Salario * 0.1);
         }
     }
 }
