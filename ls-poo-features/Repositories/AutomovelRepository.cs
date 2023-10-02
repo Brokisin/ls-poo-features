@@ -34,12 +34,15 @@ namespace ls_poo_features.Repositories
             {
                 Console.WriteLine("### Montadora ###");
                 Console.WriteLine("-> Codigo:");
-                montadora.CodigoMontadora = int.Parse(Console.ReadLine()!);
+                int codigoMontadora = int.Parse(Console.ReadLine()!);
                 Console.WriteLine("-> Razão Social:");
-                montadora.RazaoSocial = Console.ReadLine()!;
+                string razaoSocial = Console.ReadLine()!;
                 Console.WriteLine("-> Estado:");
-                montadora.Estado = Console.ReadLine()!;
+                string estado = Console.ReadLine()!;
+
+                montadora = new Montadora(codigoMontadora, estado, razaoSocial);
                 listaMontadora.Add(montadora);
+
                 Console.WriteLine("\nCadastro finalizado!\n");
             }
             catch (Exception ex)
@@ -59,17 +62,20 @@ namespace ls_poo_features.Repositories
                 }
                 Console.WriteLine("### Modelo ###");
                 Console.WriteLine("-> Codigo:");
-                modelo.CodigoModelo = int.Parse(Console.ReadLine()!);
+                int codigoModelo = int.Parse(Console.ReadLine()!);
                 Console.WriteLine("-> Nome do Modelo:");
-                modelo.NomeModelo = Console.ReadLine()!;
+                string nomeModelo = Console.ReadLine()!;
                 Console.WriteLine("-> Código da Montadora:");
-                int razSoci = int.Parse(Console.ReadLine()!);
+                int razaoSocial = int.Parse(Console.ReadLine()!);
 
-                if (!VerificarMontadoraExistente(razSoci))
+                if (!VerificarMontadoraExistente(razaoSocial))
                 {
                     Console.WriteLine("Não há Montadora cadastrada com esse código.");
                     return;
                 }
+
+                modelo = new Modelo(codigoModelo, nomeModelo, montadora);
+                listaModelo.Add(modelo);
 
                 Console.WriteLine("\nCadastro finalizado!\n");
             }
@@ -90,9 +96,9 @@ namespace ls_poo_features.Repositories
                 }
                 Console.WriteLine("### Carro ###");
                 Console.WriteLine("-> Placa:");
-                carro.Placa = Console.ReadLine()!;
+                string placa = Console.ReadLine()!;
                 Console.WriteLine("-> Ano de fabricação:");
-                carro.AnoFabricacao = int.Parse(Console.ReadLine()!);
+                int anoFabricacao = int.Parse(Console.ReadLine()!);
                 Console.WriteLine("-> Código do Modelo:");
                 int codigoModelo = int.Parse(Console.ReadLine()!);
 
@@ -101,6 +107,9 @@ namespace ls_poo_features.Repositories
                     Console.WriteLine("Não há Modelo cadastrado com esse código.");
                     return;
                 }
+
+                carro = new Carro(placa, modelo, anoFabricacao);
+                listaCarro.Add(carro);
 
                 Console.WriteLine("\nCadastro finalizado!\n");
             }
