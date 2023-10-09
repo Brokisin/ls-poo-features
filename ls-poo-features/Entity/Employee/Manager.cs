@@ -2,7 +2,8 @@
 {
     public class Manager : Employee
     {
-        public Manager(string? nome, string? cPF, float salario, string? departamento, string? senha, int numeroFuncionarios) : base(nome, cPF, salario, departamento)
+
+        public Manager(string? nome, string? cPF, double salario, string? departamento, string? senha, int numeroFuncionarios) : base(nome, cPF, salario, departamento)
         {
             Nome = nome;
             CPF = cPF;
@@ -12,18 +13,21 @@
             NumeroFuncionariosGerenciados = numeroFuncionarios; 
         }
 
+        public Manager() : base()
+        {
+        }
+
         public string? Senha { get; set; }
         public int NumeroFuncionariosGerenciados { get; set; }
-
-        
-        public virtual bool AutenticarSenha(string senha)
-        {
-            return senha == Senha;
-        }
 
         public override void Bonificar()
         {
             Salario = Salario + (Salario * 0.15);
+        }
+
+        public bool AutenticarSenha(string senha)
+        {
+            return senha == Senha;
         }
     }
 }

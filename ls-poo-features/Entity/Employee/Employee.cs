@@ -2,7 +2,11 @@
 {
     public class Employee
     {
-        public Employee(string? nome, string? cPF, float salario, string? departamento)
+        public Employee()
+        {
+        }
+
+        public Employee(string? nome, string? cPF, double salario, string? departamento)
         {
             Nome = nome;
             CPF = cPF;

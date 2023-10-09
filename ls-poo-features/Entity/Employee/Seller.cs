@@ -2,7 +2,11 @@
 {
     public class Seller : Employee
     {
-        public Seller(string? nome, string? cPF, float salario, string? departamento, int quantidadeVendas, int comissao, string senha) : base(nome, cPF, salario, departamento)
+        public Seller()
+        {
+        }
+
+        public Seller(string? nome, string? cPF, double salario, string? departamento, int quantidadeVendas, int comissao) : base(nome, cPF, salario, departamento)
         {
             Nome = nome;
             CPF = cPF;
@@ -10,12 +14,10 @@
             Departamento = departamento;
             QuantidadeVendas = quantidadeVendas;
             Comissao = comissao;
-            Senha = senha;
         }
 
         public int QuantidadeVendas { get; set; }
         public int Comissao { get; set; }
-        public string Senha { get; set; }
 
         public void AtualizaQuantidadeVendas(int quantidade)
         {
@@ -24,17 +26,7 @@
 
         public void CalcularSalario()
         {
-            int quantidadeVendas = QuantidadeVendas;
-            while (quantidadeVendas != 0)
-            {
-                Salario += Comissao;
-                quantidadeVendas--;
-            }
-        }
-
-        public virtual bool AutenticarSenha(string senha)
-        {
-            return senha == Senha;
+            Salario += (QuantidadeVendas * Comissao);
         }
     }
 }

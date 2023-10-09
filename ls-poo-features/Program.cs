@@ -142,47 +142,109 @@ namespace ls_poo_features
             //        }
             //    }
             //}
-            Employee emp = new Employee("Funcionario", "231864", 1000, "Departamento");
-            Manager man = new Manager("Gerente", "5468965", 7000, "Departamento", "senhaGerente", 10);
-            Seller seller = new Seller("Vendedor", "1234567879", 3000, "Departamento", 4, 20, "senhaVendedor123");
+            Employee emp = new Employee();
+            Seller seller = new Seller();
+            Manager man = new Manager();
 
             int opt = 0;
-            while (opt!=6)
+            while (opt != 9)
             {
                 Console.WriteLine("##### MENU #####\n- Escolha uma opção abaixo\n");
-                Console.WriteLine("1 > Bonificar funcionário");
-                Console.WriteLine("2 > Bonificar gerente");
-                Console.WriteLine("3 > Autenticar Senha do Vendedor");
-                Console.WriteLine("4 > Atualizar quantidade vendas");
-                Console.WriteLine("5 > Calcular salário vendedor");
+                Console.WriteLine("1 > Cadastrar funcionário");
+                Console.WriteLine("2 > Cadastrar vendedor");
+                Console.WriteLine("3 > Cadastrar gerente");
+                Console.WriteLine("4 > Bonificar funcionário");
+                Console.WriteLine("5 > Bonificar gerente");
+                Console.WriteLine("6 > Autenticar Senha do Gerente");
+                Console.WriteLine("7 > Atualizar quantidade vendas");
+                Console.WriteLine("8 > Calcular salário vendedor");
+                Console.WriteLine("9 > Sair");
 
                 opt = int.Parse(Console.ReadLine()!);
 
                 if (opt == 1)
                 {
+                    Console.WriteLine("Cadastrando funcionario:\n");
+                    Console.WriteLine("Nome:");
+                    string nome = Console.ReadLine();
+                    Console.WriteLine("CPF:");
+                    string CPF = Console.ReadLine();
+                    Console.WriteLine("Salario:");
+                    double salario = double.Parse(Console.ReadLine()!);
+                    Console.WriteLine("Departamento:");
+                    string departamento = Console.ReadLine();
+
+                    emp = new Employee(nome, CPF, salario, departamento);
+
+                    Console.WriteLine("Funcionario cadastrado!");
+                }
+                if (opt == 2)
+                {
+                    Console.WriteLine("Cadastrando vendedor:\n");
+                    Console.WriteLine("Nome:");
+                    string nome = Console.ReadLine();
+                    Console.WriteLine("CPF:");
+                    string CPF = Console.ReadLine();
+                    Console.WriteLine("Salario:");
+                    double salario = double.Parse(Console.ReadLine()!);
+                    Console.WriteLine("Departamento:");
+                    string departamento = Console.ReadLine();
+                    Console.WriteLine("Quantidade de vendas:");
+                    int quantidadeVendas = int.Parse(Console.ReadLine()!);
+                    Console.WriteLine("Comissão:");
+                    int comissao = int.Parse(Console.ReadLine()!);
+
+                    seller = new Seller(nome, CPF, salario, departamento, quantidadeVendas, comissao);
+
+                    Console.WriteLine("Vendedor cadastrado!");
+
+                }
+                if (opt == 3)
+                {
+                    Console.WriteLine("Cadastrando gerente:\n");
+                    Console.WriteLine("Nome:");
+                    string nome = Console.ReadLine();
+                    Console.WriteLine("CPF:");
+                    string CPF = Console.ReadLine();
+                    Console.WriteLine("Salario:");
+                    double salario = double.Parse(Console.ReadLine()!);
+                    Console.WriteLine("Departamento:");
+                    string departamento = Console.ReadLine();
+                    Console.WriteLine("Senha:");
+                    string senha = Console.ReadLine()!;
+                    Console.WriteLine("Numero de funcionarios gerenciados:");
+                    int numeroFuncionariosGerenciados = int.Parse(Console.ReadLine()!);
+
+                    man = new Manager(nome, CPF, salario, departamento, senha, numeroFuncionariosGerenciados);
+
+                    Console.WriteLine("Gerente cadastrado!");
+
+                }
+                if (opt == 4)
+                {
                     Console.WriteLine($"-----\nSalário: {emp.Salario}\n");
                     emp.Bonificar();
                     Console.WriteLine($"Salário atualizado: {emp.Salario}\n-----");
                 }
-                if (opt == 2)
+                if (opt == 5)
                 {
                     Console.WriteLine($"-----\nSalário: {man.Salario}\n");
                     man.Bonificar();
                     Console.WriteLine($"Salário atualizado: {man.Salario}\n-----");
                 }
-                if (opt == 3)
+                if (opt == 6)
                 {
                     Console.WriteLine("-----\nDigite a senha: ");
                     string senha = Console.ReadLine()!;
-                    if (seller.AutenticarSenha(senha))
+                    if (man.AutenticarSenha(senha))
                     {
                         Console.WriteLine("-----\nSenha digitada está correta!");
-                        Console.WriteLine($"Senha: {seller.Senha}");
+                        Console.WriteLine($"Senha: {man.Senha}");
                     }
                     else
                         Console.WriteLine("-----\nSenha incorreta! Retornando...\n-----");
                 }
-                if (opt == 4)
+                if (opt == 7)
                 {
                     Console.WriteLine("-----\nInsira a quantidade de vendas a atualizar: ");
                     int qntdVendas = int.Parse(Console.ReadLine()!);
@@ -190,16 +252,18 @@ namespace ls_poo_features
                     seller.AtualizaQuantidadeVendas(qntdVendas);
                     Console.WriteLine($"Quantidade de vendas atualizada: {seller.QuantidadeVendas}\n-----");
                 }
-                if (opt == 5)
+                if (opt == 8)
                 {
                     Console.WriteLine($"-----\nAtual salário do vendedor: {seller.Salario}");
                     seller.CalcularSalario();
                     Console.WriteLine($"Quantidade de vendas atual: {seller.QuantidadeVendas}");
                     Console.WriteLine($"Salário do vendedor somando as comissões por venda (R${seller.Comissao},00): {seller.Salario}");
                 }
+                if (opt == 9)
+                {
+                    Console.WriteLine("Saindo...");
+                }
             }
-
-            Console.WriteLine("\nQuitting...");
         }
     }
 }
